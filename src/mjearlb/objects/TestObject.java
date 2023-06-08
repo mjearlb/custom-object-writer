@@ -10,4 +10,9 @@ public class TestObject {
 	this.string = "testing"; 
     }  // TestObject
 
+    @Override
+    public String toString() {
+	return this.integer + " - " + this.string; 
+    } // toString
+
 } // TestObject
