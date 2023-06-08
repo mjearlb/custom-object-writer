@@ -16,7 +16,9 @@ public class WriteToFile {
 	    FileWriter fw = new FileWriter(pathName);
 	    
 	    String json = gson.toJson(obj);
-	    fw.write(json); 
+	    fw.write(json);
+	    fw.flush();
+	    fw.close(); 
 	} catch (IOException e) {
 	    System.err.println(e);
 	    e.printStackTrace(); 
