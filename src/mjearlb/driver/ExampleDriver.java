@@ -5,6 +5,8 @@ import mjearlb.writer.WriteToFile;
 import static mjearlb.writer.WriteToFile.writeToFile; 
 import mjearlb.writer.ReadFromFile;
 import static mjearlb.writer.ReadFromFile.readFromFile;
+import java.io.FileNotFoundException;
+import java.nio.file.FileAlreadyExistsException;
 
 public class ExampleDriver {
 
@@ -13,12 +15,18 @@ public class ExampleDriver {
     public static void main(String[] args) {
 	testObj1 = new TestObject();
 	System.out.println(testObj1);
-	writeToFile(testObj1, "test1");
+	try {
+	    writeToFile(testObj1, "test1");
+	} catch (FileAlreadyExistsException e) {
+	    System.out.println("File already exists"); 
+	} // try/catch
 
-
-	TestObject testObj2 = readFromFile("test1", TestObject.class);
-
-	System.out.println(testObj2);
+	try {
+	    TestObject testObj2 = readFromFile("test1", TestObject.class);
+	    System.out.println(testObj2);
+	} catch (FileNotFoundException e) {
+	    System.out.println("File does not exist!"); 
+	} // try/catch
 	
     } // main
 
