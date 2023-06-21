@@ -20,16 +20,14 @@ public class ReadFromFile {
      */
     public static <T> T readFromFile(String title, Class<T> objType) throws FileNotFoundException {
 	String pathName = "resources/" + title + ".txt";
+	FileReader fr = new FileReader(pathName);
+	T obj = gson.fromJson(fr, objType);
 	try {
-	    FileReader fr = new FileReader(pathName);
-	    T obj = gson.fromJson(fr, objType);
-	    fr.close(); 
-	    return obj; 
+	    fr.close();
 	} catch (IOException e) {
-	    System.err.println(e);
-	    e.printStackTrace();
 	    return null; 
 	} // try/catch
+	return obj; 
     } // readFromFile
     
 } // ReadFromFile
