@@ -17,14 +17,16 @@ public class WriteToFile {
      * .txt file named {@code title} in the /resources directory.
      *
      * @param obj the object being written to the file.
-     * @param title the name of the file. 
+     * @param title the name of the file.
+     * @param overWrite whether the user wants to overWrite an existing file
+     * of the same name. 
      * @throws FileAlreadyExistsException when trying to overwrite an
      * existing file. 
      */
-    public static <T> void writeToFile(T obj, String title) throws FileAlreadyExistsException {
+    public static <T> void writeToFile(T obj, String title, boolean overWrite) throws FileAlreadyExistsException {
 	String pathName = "resources/" + title + ".txt";
 
-	if (new File(pathName).exists()) {
+	if (!overWrite && new File(pathName).exists()) {
 	    throw new FileAlreadyExistsException(pathName);
 	} // if
 
