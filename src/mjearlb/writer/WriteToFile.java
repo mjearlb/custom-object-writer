@@ -19,7 +19,8 @@ public class WriteToFile {
      * @param obj the object being written to the file.
      * @param title the name of the file.
      * @param overWrite whether the user wants to overWrite an existing file
-     * of the same name. 
+     * of the same name. Use {@code true} if you want to be able to overwrite
+     * an existing file, {@code false} if not. 
      * @throws FileAlreadyExistsException when trying to overwrite an
      * existing file. 
      */
