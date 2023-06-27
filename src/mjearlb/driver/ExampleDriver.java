@@ -16,9 +16,9 @@ public class ExampleDriver {
 	testObj1 = new TestObject();
 	System.out.println(testObj1);
 	try {
-	    writeToFile(testObj1, "test1");
+	    writeToFile(testObj1, "test1", false);
 	} catch (FileAlreadyExistsException e) {
-	    System.out.println("File already exists"); 
+	    System.out.println("File already exists!"); 
 	} // try/catch
 
 	try {
