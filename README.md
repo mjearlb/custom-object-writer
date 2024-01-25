@@ -16,3 +16,6 @@ When calling readFromFile(title, objType), parameters are as follows:
 - title: the name of the file (do not include ".txt")
 
 - objType: pass the object type as "Example.class"
+
+Note: custom-object-writer will read/write to/from a /resources directory. It will fail
+if this directory does not exist. 
